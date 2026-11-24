@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Materiais Gratuitos — Brittech Educação</title>
+<meta name="description" content="Aulas prontas, provas, apostilas, atividades e simulados gratuitos e legais para baixar: Educação Infantil, Fundamental 1 e 2 e Ensino Médio. Brittech Educação.">
+<style>
+:root{--navy:#0A2540;--cyan:#0284C7;--lime:#84CC16;--paper:#F7F3EC;--ink:#101418;--muted:#5b6470}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--paper);color:var(--ink);overflow-x:hidden}
+a{color:inherit}
+.topo{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:14px 20px;background:rgba(247,243,236,.92);backdrop-filter:blur(6px);border-bottom:1px solid #10141822}
+.topo .marca{font-weight:900;letter-spacing:-.02em;font-size:15px;text-transform:uppercase}
+.topo .marca b{color:var(--cyan)}
+.menu-btn{background:var(--navy);color:#fff;border:0;font:inherit;font-weight:800;letter-spacing:.08em;padding:10px 16px;cursor:pointer;text-transform:uppercase}
+.menu{position:fixed;inset:0;background:var(--navy);color:#fff;z-index:90;display:none;flex-direction:column;justify-content:center;padding:40px 8vw}
+.menu.aberto{display:flex}
+.menu a{display:block;color:#fff;text-decoration:none;font-weight:900;text-transform:uppercase;letter-spacing:-.03em;font-size:clamp(30px,7vw,64px);line-height:1.05;padding:6px 0;border-bottom:1px solid #ffffff22}
+.menu a span{color:var(--lime);font-size:.45em;vertical-align:super;margin-right:12px}
+.menu .fechar{position:absolute;top:18px;right:20px;background:none;border:1px solid #fff;color:#fff;font:inherit;font-weight:800;padding:10px 16px;cursor:pointer}
+#loader{position:fixed;inset:0;background:var(--navy);color:#fff;z-index:100;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:18px;transition:opacity .5s}
+#loader .num{font-size:clamp(80px,20vw,180px);font-weight:900;letter-spacing:-.05em;line-height:1}
+#loader .bar{width:min(420px,80vw);height:8px;background:#ffffff33}
+#loader .bar i{display:block;height:100%;background:var(--lime);width:0}
+#loader p{letter-spacing:.25em;text-transform:uppercase;font-size:12px;opacity:.8}
+.hero{min-height:92vh;display:flex;flex-direction:column;justify-content:flex-end;padding:120px 5vw 40px}
+.hero .kicker{font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--cyan);font-weight:800;margin-bottom:18px}
+.hero h1{font-size:clamp(52px,11vw,168px);line-height:.92;letter-spacing:-.045em;font-weight:900;text-transform:uppercase}
+.hero h1 .vazado{color:transparent;-webkit-text-stroke:2px var(--ink)}
+.hero h1 .lima{color:var(--lime);-webkit-text-stroke:0}
+.hero .sub{margin-top:26px;max-width:640px;font-size:clamp(17px,2.4vw,22px);line-height:1.45}
+.hero .sub b{background:var(--lime);padding:0 6px}
+.cue{margin-top:34px;font-size:12px;letter-spacing:.3em;text-transform:uppercase;font-weight:800}
+.marquee{background:var(--navy);color:#fff;overflow:hidden;white-space:nowrap;padding:14px 0;font-weight:900;text-transform:uppercase;letter-spacing:.02em;font-size:clamp(15px,2.4vw,24px)}
+.marquee span{display:inline-block;padding-left:100%;animation:mq 26s linear infinite}
+@keyframes mq{to{transform:translateX(-100%)}}
+.busca{padding:48px 5vw 8px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.busca input{flex:1;min-width:240px;font:inherit;font-size:18px;padding:16px 18px;border:2px solid var(--ink);background:#fff}
+.busca .contagem{font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:14px}
+.filtros{display:flex;gap:8px;flex-wrap:wrap;padding:12px 5vw 0}
+.filtros button{font:inherit;font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:.05em;padding:9px 14px;border:2px solid var(--ink);background:transparent;cursor:pointer}
+.filtros button.ativo{background:var(--ink);color:#fff}
+.nivel{padding:56px 5vw 24px}
+.nivel.infantil{background:var(--paper)}
+.nivel.f1{background:#E3F2FB}
+.nivel.f2{background:var(--navy);color:#fff}
+.nivel.em{background:#E9F7C8}
+.nivel.plat{background:var(--cyan);color:#fff}
+.nivel.plat h2 small{color:var(--lime)}
+.nivel.plat .item.aberto{background:rgba(255,255,255,.16)}
+.nivel.ativ{background:var(--lime);color:var(--navy)}
+.nivel.ativ h2 small{color:var(--navy)}
+.nivel.ativ .item.aberto{background:rgba(255,255,255,.5)}
+.nivel.ativ .acoes a.plat{background:var(--navy);color:#fff;border-color:var(--navy)}
+.grupo{font-weight:900;text-transform:uppercase;letter-spacing:.06em;font-size:15px;padding:28px 4px 4px}
+.nivel h2{font-size:clamp(38px,7vw,96px);line-height:.95;letter-spacing:-.04em;font-weight:900;text-transform:uppercase}
+.nivel h2 small{display:block;font-size:.32em;letter-spacing:.14em;color:var(--cyan);margin-bottom:10px}
+.nivel.f2 h2 small{color:var(--lime)}
+.nivel .desc{margin:14px 0 26px;max-width:680px;font-size:17px;line-height:1.5;opacity:.85}
+.lista{border-top:2px solid currentColor}
+.item{border-bottom:1px solid currentColor;padding:18px 4px;cursor:pointer}
+.item .linha{display:flex;gap:16px;align-items:baseline}
+.item .num{font-weight:900;font-size:14px;opacity:.6;min-width:34px}
+.item .tit{font-weight:900;font-size:clamp(18px,3vw,28px);line-height:1.1;letter-spacing:-.02em;flex:1}
+.item .tipo{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;white-space:nowrap}
+.item .detalhe{display:none;padding:16px 0 6px 50px}
+.item.aberto .detalhe{display:block}
+.item.aberto{background:rgba(132,204,22,.14)}
+.nivel.f2 .item.aberto{background:rgba(132,204,22,.22)}
+.detalhe p{margin:6px 0;line-height:1.5;font-size:16px}
+.detalhe .fonte{opacity:.75;font-size:14px}
+.selo{display:inline-block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;border:1.5px solid currentColor;padding:4px 8px;margin:2px 4px 2px 0}
+.acoes{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.acoes a{display:inline-block;text-decoration:none;font-weight:900;text-transform:uppercase;letter-spacing:.04em;font-size:14px;padding:13px 20px;border:2px solid currentColor}
+.acoes a.baixar{background:var(--lime);color:#101418;border-color:var(--lime)}
+.acoes a.fonte{background:var(--cyan);color:#fff;border-color:var(--cyan)}
+.acoes a.plat{background:var(--lime);color:#101418;border-color:var(--lime)}
+.sem-resultado{display:none;padding:40px 5vw;font-size:20px;font-weight:800}
+.manifesto{padding:80px 5vw;background:var(--paper)}
+.manifesto h2{font-size:clamp(40px,8vw,110px);line-height:.95;letter-spacing:-.04em;font-weight:900;text-transform:uppercase}
+.manifesto h2 s{color:var(--cyan)}
+.manifesto h2 .lima{color:var(--lime)}
+.manifesto p{margin-top:24px;max-width:680px;font-size:18px;line-height:1.55}
+.rodape{background:var(--navy);color:#fff;padding:64px 5vw 30px}
+.rodape .gigante{font-size:clamp(44px,10vw,140px);font-weight:900;letter-spacing:-.04em;line-height:.95;text-transform:uppercase;color:transparent;-webkit-text-stroke:1.5px #ffffff55}
+.rodape p{margin-top:22px;max-width:720px;line-height:1.6;opacity:.85}
+.rodape .cta{display:inline-block;margin-top:26px;background:var(--lime);color:#101418;text-decoration:none;font-weight:900;text-transform:uppercase;padding:16px 26px;letter-spacing:.04em}
+@media (max-width:640px){.item .linha{flex-wrap:wrap;gap:6px}.item .tipo{width:100%;padding-left:50px}.detalhe{padding-left:0!important}}
+@media (prefers-reduced-motion:reduce){.marquee span{animation:none;padding-left:0}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div id="loader"><div class="num" id="loadnum">0%</div><div class="bar"><i id="loadbar"></i></div><p>Brittech Educação · Materiais gratuitos</p></div>
+<header class="topo"><div class="marca">Brittech <b>Educação</b> · Materiais gratuitos</div><button class="menu-btn" id="abrirMenu">Menu +</button></header>
+<nav class="menu" id="menu">
+  <button class="fechar" id="fecharMenu">Fechar ×</button>
+  <a href="#infantil"><span>01</span>Educação Infantil</a>
+  <a href="#fundamental-1"><span>02</span>Fundamental 1</a>
+  <a href="#fundamental-2"><span>03</span>Fundamental 2</a>
+  <a href="#medio"><span>04</span>Ensino Médio</a>
+  <a href="#como-usar"><span>05</span>Como usar</a>
+  <a href="#plataformas"><span>06</span>Livros e plataformas</a>
+  <a href="#atividades"><span>07</span>Atividades prontas</a>
+</nav>
+<section class="hero">
+  <div class="kicker">Acervo aberto · 100% gratuito · 100% legal</div>
+  <h1>Material<br>pronto pra<br><span class="vazado">baixar</span> e<br><span class="lima">usar.</span></h1>
+  <p class="sub">Aulas prontas, provas, apostilas, atividades e simulados <b>gratuitos e legais</b> da internet, reunidos por nível e disciplina. O que dá pra baixar está aqui. O que é de outro site, a gente te leva até a fonte oficial.</p>
+  <div class="cue">Role para descobrir ↓</div>
+</section>
+<div class="marquee"><span>30 materiais gratuitos ● 8 plataformas gratuitas ● 26 coleções de atividades ● 4 níveis ● 13 disciplinas ● Provas do ENEM ● Apostilas ● Livros infantis ● Domínio público ● Baixar. Editar. Adaptar. ●</span></div>
+<div class="busca">
+  <input id="campoBusca" type="search" placeholder="Buscar por título, disciplina ou tipo — ex.: ENEM, Ciências, prova…" aria-label="Buscar materiais">
+  <div class="contagem" id="contagem"></div>
+</div>
+<div class="filtros" id="filtros">
+  <button data-f="todos" class="ativo">Todos</button>
+  <button data-f="prova">Provas e simulados</button>
+  <button data-f="apostila">Apostilas</button>
+  <button data-f="livro">Livros</button>
+  <button data-f="atividade">Atividades</button>
+  <button data-f="portal">Portais</button>
+</div>
+<main id="listas"></main>
+<div class="sem-resultado" id="semResultado">Nenhum material encontrado com essa busca. Tente outra palavra — ex.: ENEM, Ciências, livro.</div>
+<section class="nivel plat" id="plataformas">
+  <h2><small>06 · Livros e plataformas gratuitas</small>Livros e<br>plataformas<br>gratuitas</h2>
+  <p class="desc">Bibliotecas digitais e plataformas oficiais e gratuitas para ler, estudar idiomas, treinar para o ENEM e programar. O acesso é feito no site de cada plataforma — algumas pedem login com a conta gov.br, que é gratuita.</p>
+  <div class="lista" id="listaPlataformas">
+    <article class="item plat-item"><div class="linha"><span class="num">01</span><span class="tit">MEC Livros</span><span class="tipo">Biblioteca digital</span></div><div class="detalhe"><p><span class="selo">Todos os níveis</span><span class="selo">Leitura</span><span class="selo">Gratuito · login gov.br</span></p><p>Biblioteca digital do MEC com cerca de 25 mil obras literárias nacionais e internacionais — clássicos em domínio público e obras contemporâneas licenciadas. Empréstimo digital por 14 dias, leitura no navegador ou no aplicativo, em PDF ou ePub.</p><p class="fonte">Fonte: Ministério da Educação — meclivros.mec.gov.br</p><div class="acoes"><a class="plat" href="https://meclivros.mec.gov.br" target="_blank" rel="noopener">Acessar plataforma ↗</a></div></div></article>
+    <article class="item plat-item"><div class="linha"><span class="num">02</span><span class="tit">MEC ENEM</span><span class="tipo">Preparação para o ENEM</span></div><div class="detalhe"><p><span class="selo">Ensino Médio</span><span class="selo">Simulados</span><span class="selo">Gratuito · login gov.br</span></p><p>Aplicativo do MEC para treinar para o ENEM: simulados com questões de edições anteriores, trilhas de estudo por área, mais de 300 videoaulas, prática de redação com correção por inteligência artificial e assistente virtual que monta cronogramas de estudo.</p><p class="fonte">Fonte: Ministério da Educação — app.mecenem.mec.gov.br</p><div class="acoes"><a class="plat" href="https://app.mecenem.mec.gov.br" target="_blank" rel="noopener">Acessar plataforma ↗</a></div></div></article>
+    <article class="item plat-item"><div class="linha"><span class="num">03</span><span class="tit">MEC Idiomas</span><span class="tipo">Inglês e espanhol</span></div><div class="detalhe"><p><span class="selo">Fundamental 2</span><span class="selo">Ensino Médio</span><span class="selo">Gratuito · login gov.br</span></p><p>Plataforma gratuita do MEC para aprender inglês e espanhol, do nível básico (A1) ao avançado (C2): cerca de 800 aulas, teste de nivelamento, agente de IA para conversação e certificado ao fim dos módulos.</p><p class="fonte">Fonte: Ministério da Educação — mecidiomas.mec.gov.br</p><div class="acoes"><a class="plat" href="https://mecidiomas.mec.gov.br" target="_blank" rel="noopener">Acessar plataforma ↗</a></div></div></article>
+    <article class="item plat-item"><div class="linha"><span class="num">04</span><span class="tit">Khan Academy</span><span class="tipo">Aulas e exercícios</span></div><div class="detalhe"><p><span class="selo">Fundamental 1</span><span class="selo">Fundamental 2</span><span class="selo">Ensino Médio</span><span class="selo">Gratuito</span></p><p>Plataforma sem fins lucrativos com videoaulas e exercícios em português de Matemática, Ciências, Física, Química e Biologia — do Fundamental ao Ensino Médio. Conta gratuita, sem mensalidade.</p><p class="fonte">Fonte: Khan Academy — pt.khanacademy.org</p><div class="acoes"><a class="plat" href="https://pt.khanacademy.org" target="_blank" rel="noopener">Acessar plataforma ↗</a></div></div></article>
+    <article class="item plat-item"><div class="linha"><span class="num">05</span><span class="tit">Microsoft micro:bit</span><span class="tipo">Programação e robótica</span></div><div class="detalhe"><p><span class="selo">Fundamental 2</span><span class="selo">Ensino Médio</span><span class="selo">Gratuito</span></p><p>Programação em blocos e em Python para a placa micro:bit, com simulador online gratuito, projetos prontos e atividades para a sala de aula — ideal para aulas de Tecnologia, Programação e Robótica, mesmo sem a placa física.</p><p class="fonte">Fonte: Microsoft / micro:bit Educational Foundation — microbit.org</p><div class="acoes"><a class="plat" href="https://microbit.org/pt-br/" target="_blank" rel="noopener">Acessar plataforma ↗</a></div></div></article>
+    <article class="item plat-item"><div class="linha"><span class="num">06</span><span class="tit">Google Colab</span><span class="tipo">Cadernos Python</span></div><div class="detalhe"><p><span class="selo">Ensino Médio</span><span class="selo">Tecnologia e Programação</span><span class="selo">Gratuito</span></p><p>Ambiente gratuito do Google para escrever e rodar código Python direto no navegador, sem instalar nada — com acesso a GPU gratuita. Perfeito para aulas de programação, dados e inteligência artificial.</p><p class="fonte">Fonte: Google — colab.research.google.com</p><div class="acoes"><a class="plat" href="https://colab.research.google.com" target="_blank" rel="noopener">Acessar plataforma ↗</a></div></div></article>
+    <article class="item plat-item"><div class="linha"><span class="num">07</span><span class="tit">Scratch</span><span class="tipo">Programação em blocos</span></div><div class="detalhe"><p><span class="selo">Fundamental 1</span><span class="selo">Fundamental 2</span><span class="selo">Gratuito</span></p><p>Linguagem de programação em blocos do MIT para criar jogos, animações e histórias interativas — em português, gratuita e direto no navegador. A porta de entrada da programação para crianças e adolescentes.</p><p class="fonte">Fonte: MIT Media Lab — scratch.mit.edu</p><div class="acoes"><a class="plat" href="https://scratch.mit.edu" target="_blank" rel="noopener">Acessar plataforma ↗</a></div></div></article>
+    <article class="item plat-item"><div class="linha"><span class="num">08</span><span class="tit">Livros de Domínio Público</span><span class="tipo">Clássicos brasileiros</span></div><div class="detalhe"><p><span class="selo">Fundamental 2</span><span class="selo">Ensino Médio</span><span class="selo">Domínio público</span></p><p>Portal do MEC com milhares de obras em domínio público para baixar em PDF: Machado de Assis, Lima Barreto, Gil Vicente, Pero Vaz de Caminha e muito mais — leitura obrigatória do Ensino Médio, gratuita e legal.</p><p class="fonte">Fonte: Ministério da Educação — dominiopublico.gov.br</p><div class="acoes"><a class="plat" href="https://www.dominiopublico.gov.br" target="_blank" rel="noopener">Acessar plataforma ↗</a></div></div></article>
+  </div>
+</section>
+<section class="nivel ativ" id="atividades">
+  <h2><small>07 · Atividades prontas na internet</small>Atividades<br>prontas na<br>internet</h2>
+  <p class="desc">Exercícios e atividades gratuitos de dois dos maiores sites de conteúdo escolar do Brasil. <b>Nada aqui foi copiado:</b> são links para as páginas oficiais de cada disciplina. O conteúdo é de cada site — clique e use direto na fonte, respeitando os termos de uso deles. Cada item mostra a fonte exata. As atividades do Tudo Sala de Aula incluem PDF para baixar, gabarito e planejamento; as do Toda Matéria incluem resumos e exercícios com gabarito comentado.</p>
+  <div class="lista" id="listaAtividades">
+    <div class="grupo">Toda Matéria — todamateria.com.br</div>
+    <article class="item ativ-item"><div class="linha"><span class="num">01</span><span class="tit">Língua Portuguesa</span><span class="tipo">Resumos e exercícios</span></div><div class="detalhe"><p><span class="selo">Fundamental 2</span><span class="selo">Ensino Médio</span><span class="selo">Com gabarito</span></p><p>Gramática, interpretação de texto, redação e literatura: resumos e exercícios com gabarito comentado, incluindo atividades de alfabetização para imprimir.</p><p class="fonte">Fonte: <b>Toda Matéria</b> — todamateria.com.br/lingua-portuguesa/ · Conteúdo do site de origem (link externo), não da Brittech Educação.</p><div class="acoes"><a class="plat" href="https://www.todamateria.com.br/lingua-portuguesa/" target="_blank" rel="noopener">Acessar atividades ↗</a></div></div></article>
+    <article class="item ativ-item"><div class="linha"><span class="num">02</span><span class="tit">Matemática</span><span class="tipo">Resumos e exercícios</span></div><div class="detalhe"><p><span class="selo">Fundamental 1</span><span class="selo">Fundamental 2</span><span class="selo">Ensino Médio</span><span class="selo">Com gabarito</span></p><p>Conjuntos, funções, geometria, porcentagem, tabuada e raciocínio lógico, com exercícios e respostas explicadas, do Fundamental ao Médio.</p><p class="fonte">Fonte: <b>Toda Matéria</b> — todamateria.com.br/matematica/ · Conteúdo do site de origem (link externo), não da Brittech Educação.</p><div class="acoes"><a class="plat" href="https://www.todamateria.com.br/matematica/" target="_blank" rel="noopener">Acessar atividades ↗</a></div></div></article>
+    <article class="item ativ-item"><div class="linha"><span class="num">03</span><span class="tit">História</span><span class="tipo">Resumos e exercícios</span></div><div class="detalhe"><p><span class="selo">Fundamental 2</span><span class="selo">Ensino Médio</span><span class="selo">Com gabarito</span></p><p>Do Brasil Colônia ao século XX: resumos e questões com gabarito de vestibular e ENEM, como Revolução Industrial, Era Vargas e Segunda Guerra Mundial.</p><p class="fonte">Fonte: <b>Toda Matéria</b> — todamateria.com.br/historia/ · Conteúdo do site de origem (link externo), não da Brittech Educação.</p><div class="acoes"><a class="plat" href="https://www.todamateria.com.br/historia/" target="_blank" rel="noopener">Acessar atividades ↗</a></div></div></article>
+    <article class="item ativ-item"><div class="linha"><span class="num">04</span><span class="tit">Inglês</span><span class="tipo">Resumos e exercícios</span></div><div class="detalhe"><p><span class="selo">Fundamental 2</span><span class="selo">Ensino Médio</span><span class="selo">Com gabarito</span></p><p>Gramática da língua inglesa, tempos verbais, falsos cognatos e exercícios de interpretação de texto com gabarito (ENEM).</p><p class="fonte">Fonte: <b>Toda Matéria</b> — todamateria.com.br/ingles/ · Conteúdo do site de origem (link externo), não da Brittech Educação.</p><div class="acoes"><a class="plat" href="https://www.todamateria.com.br/ingles/" target="_blank" rel="noopener">Acessar atividades ↗</a></div></div></article>
+    <article class="item ativ-item"><div class="linha"><span class="num">05</span><span class="tit">Geografia</span><span class="tipo">Resumos e exercícios</span></div><div class="detalhe"><p><span class="selo">Fundamental 2</span><span class="selo">Ensino Médio</span><span class="selo">Com gabarito</span></p><p>Mapas, capitais, biomas brasileiros, globalização e problemas ambientais, com exercícios e respostas explicadas.</p><p class="fonte">Fonte: <b>Toda Matéria</b> — todamateria.com.br/geografia/ · Conteúdo do site de origem (link externo), não da Brittech Educação.</p><div class="acoes"><a class="plat" href="https://www.todamateria.com.br/geografia/" target="_blank" rel="noopener">Acessar atividades ↗</a></div></div></article>
+    <article class="item ativ-item"><div class="linha"><span class="num">06</span><span class="tit">Biologia</span><span class="tipo">Resumos e exercícios</span></div><div class="detalhe"><p><span class="selo">Fundamental 2</span><span class="selo">Ensino Médio</span><span class="selo">Com gabarito</span></p><p>Corpo humano, genética, evolução, ecologia e biomas brasileiros, com exercícios de vestibular e ENEM.</p><p class="fonte">Fonte: <b>Toda Matéria</b> — todamateria.com.br/biologia/ · Conteúdo do site de origem (link externo), não da Brittech Educação.</p><div class="acoes"><a class="plat" href="https://www.todamateria.com.br/biologia/" target="_blank" rel="noopener">Acessar atividades ↗</a></div></div></article>
+    <article class="item ativ-item"><div class="linha"><span class="num">07</span><span class="tit">Física</span><span class="tipo">Resumos e exercícios</span></div><div class="detalhe"><p><span class="selo">Ensino Médio</span><span class="selo">Com gabarito</span></p><p>Cinemática, Leis de Newton, termodinâmica, eletricidade e eletromagnetismo, com exercícios resolvidos e comentados.</p><p class="fonte">Fonte: <b>Toda Matéria</b> — todamateria.com.br/fisica/ · Conteúdo do site de origem (link externo), não da Brittech Educação.</p><div class="acoes"><a class="plat" href="https://www.todamateria.com.br/fisica/" target="_blank" rel="noopener">Acessar atividades ↗</a></div></div></article>
+    <article class="item ativ-item"><div class="linha"><span class="num">08</span><span class="tit">Química</span><span class="tipo">Resumos e exercícios</span></div><div class="detalhe"><p><span class="selo">Ensino Médio</span><span class="selo">Com gabarito</span></p><p>Tabela periódica, misturas homogêneas e heterogêneas, ligações químicas, estequiometria e química orgânica, com exercícios e gabarito explicado.</p><p class="fonte">Fonte: <b>Toda Matéria</b> — todamateria.com.br/quimica/ · Conteúdo do site de origem (link externo), não da Brittech Educação.</p><div class="acoes"><a class="plat" href="https://www.todamateria.com.br/quimica/" target="_blank" rel="noopener">Acessar atividades ↗</a></div></div></article>
+    <article class="item ativ-item"><div class="linha"><span class="num">09</span><span class="tit">Filosofia</span><span class="tipo">Resumos e exercícios</span></div><div class="detalhe"><p><span class="selo">Ensino Médio</span><span class="selo">Com gabarito</span></p><p>Os grandes filósofos, escolas de pensamento, ética e política, com questões de Filosofia do ENEM e respostas explicadas.</p><p class="fonte">Fonte: <b>Toda Matéria</b> — todamateria.com.br/filosofia/ · Conteúdo do site de origem (link externo), não da Brittech Educação.</p><div class="acoes"><a class="plat" href="https://www.todamateria.com.br/filosofia/" target="_blank" rel="noopener">Acessar atividades ↗</a></div></div></article>
+    <article class="item ativ-item"><div class="linha"><span class="num">10</span><span class="tit">Literatura</span><span class="tipo">Resumos e exercícios</span></div><div class="detalhe"><p><span class="selo">Ensino Médio</span><span class="selo">Com gabarito</span></p><p>Escolas literárias, resumos de livros, Semana de Arte Moderna e literatura de cordel, com exercícios e gabarito comentado.</p><p class="fonte">Fonte: <b>Toda Matéria</b> — todamateria.com.br/literatura/ · Conteúdo do site de origem (link externo), não da Brittech Educação.</p><div class="acoes"><a class="plat" href="https://www.todamateria.com.br/literatura/" target="_blank" rel="noopener">Acessar atividades ↗</a></div></div></article>
+    <article class="item ativ-item"><div class="linha"><span class="num">11</span><span class="tit">Educação Física</span><span class="tipo">Resumos e atividades</span></div><div class="detalhe"><p><span class="selo">Fundamental 1</span><span class="selo">Fundamental 2</span><span class="selo">Ensino Médio</span></p><p>Tipos de esporte, regras do futebol, vôlei e handebol, capoeira, danças e jogos populares, com atividades para a sala de aula.</p><p class="fonte">Fonte: <b>Toda Matéria</b> — todamateria.com.br/educacao-fisica/ · Conteúdo do site de origem (link externo), não da Brittech Educação.</p><div class="acoes"><a class="plat" href="https://www.todamateria.com.br/educacao-fisica/" target="_blank" rel="noopener">Acessar atividades ↗</a></div></div></article>
+    <article class="item ativ-item"><div class="linha"><span class="num">12</span><span class="tit">Sociologia</span><span class="tipo">Resumos e exercícios</span></div><div class="detalhe"><p><span class="selo">Ensino Médio</span><span class="selo">Com gabarito</span></p><p>Cultura, cidadania, Estado Moderno e problemas sociais do Brasil, com questões de Sociologia que caíram no ENEM.</p><p class="fonte">Fonte: <b>Toda Matéria</b> — todamateria.com.br/sociologia/ · Conteúdo do site de origem (link externo), não da Brittech Educação.</p><div class="acoes"><a class="plat" href="https://www.todamateria.com.br/sociologia/" target="_blank" rel="noopener">Acessar atividades ↗</a></div></div></article>
+    <article class="item ativ-item"><div class="linha"><span class="num">13</span><span class="tit">Exercícios — todas as matérias</span><span class="tipo">Banco de exercícios</span></div><div class="detalhe"><p><span class="selo">Todos os níveis</span><span class="selo">Com gabarito</span></p><p>Banco geral de exercícios com gabarito de todas as disciplinas, incluindo atividades de alfabetização e de Matemática para imprimir.</p><p class="fonte">Fonte: <b>Toda Matéria</b> — todamateria.com.br/exercicios/ · Conteúdo do site de origem (link externo), não da Brittech Educação.</p><div class="acoes"><a class="plat" href="https://www.todamateria.com.br/exercicios/" target="_blank" rel="noopener">Acessar atividades ↗</a></div></div></article>
+    <div class="grupo">Tudo Sala de Aula — tudosaladeaula.com</div>
+    <article class="item ativ-item"><div class="linha"><span class="num">01</span><span class="tit">Educação Infantil</span><span class="tipo">Atividades para imprimir</span></div><div class="detalhe"><p><span class="selo">Educação Infantil</span><span class="selo">PDF para baixar</span><span class="selo">Alinhado à BNCC</span></p><p>Compreensão leitora, vogais, ordem do alfabeto, coordenação motora, números pares e ímpares e adição — atividades prontas para imprimir.</p><p class="fonte">Fonte: <b>Tudo Sala de Aula</b> — tudosaladeaula.com/tag/educacao-infantil/ · Conteúdo do site de origem (link externo), não da Brittech Educação.</p><div class="acoes"><a class="plat" href="https://www.tudosaladeaula.com/tag/educacao-infantil/" target="_blank" rel="noopener">Acessar atividades ↗</a></div></div></article>
+    <article class="item ativ-item"><div class="linha"><span class="num">02</span><span class="tit">Língua Portuguesa — Anos Iniciais</span><span class="tipo">Atividades para imprimir</span></div><div class="detalhe"><p><span class="selo">1º ao 5º ano</span><span class="selo">PDF para baixar</span><span class="selo">Com gabarito</span></p><p>Alfabetização, sílabas, rimas, conjunções, tempos verbais e caligrafia cursiva, com quizzes por habilidade da BNCC.</p><p class="fonte">Fonte: <b>Tudo Sala de Aula</b> — tudosaladeaula.com/tag/portugues-anos-iniciais/ · Conteúdo do site de origem (link externo), não da Brittech Educação.</p><div class="acoes"><a class="plat" href="https://www.tudosaladeaula.com/tag/portugues-anos-iniciais/" target="_blank" rel="noopener">Acessar atividades ↗</a></div></div></article>
+    <article class="item ativ-item"><div class="linha"><span class="num">03</span><span class="tit">Língua Portuguesa — Anos Finais</span><span class="tipo">Atividades para imprimir</span></div><div class="detalhe"><p><span class="selo">6º ao 9º ano</span><span class="selo">PDF para baixar</span><span class="selo">Questões estilo SAEB</span></p><p>Interpretação de texto, gêneros jornalísticos, poemas e gramática, com questões baseadas no SAEB e em avaliações externas.</p><p class="fonte">Fonte: <b>Tudo Sala de Aula</b> — tudosaladeaula.com/tag/portugues-anos-finais/ · Conteúdo do site de origem (link externo), não da Brittech Educação.</p><div class="acoes"><a class="plat" href="https://www.tudosaladeaula.com/tag/portugues-anos-finais/" target="_blank" rel="noopener">Acessar atividades ↗</a></div></div></article>
+    <article class="item ativ-item"><div class="linha"><span class="num">04</span><span class="tit">Língua Inglesa — Anos Finais</span><span class="tipo">Atividades para imprimir</span></div><div class="detalhe"><p><span class="selo">8º e 9º ano</span><span class="selo">PDF para baixar</span><span class="selo">Com gabarito</span></p><p>Vocabulário, pronomes, tempos verbais e leitura em inglês, com PDF, gabarito e planejamento para o professor.</p><p class="fonte">Fonte: <b>Tudo Sala de Aula</b> — tudosaladeaula.com/atividades/ingles-8-e-9-ano/ · Conteúdo do site de origem (link externo), não da Brittech Educação.</p><div class="acoes"><a class="plat" href="https://www.tudosaladeaula.com/atividades/ingles-8-e-9-ano/" target="_blank" rel="noopener">Acessar atividades ↗</a></div></div></article>
+    <article class="item ativ-item"><div class="linha"><span class="num">05</span><span class="tit">Matemática — Anos Iniciais</span><span class="tipo">Atividades para imprimir</span></div><div class="detalhe"><p><span class="selo">1º ao 5º ano</span><span class="selo">PDF para baixar</span><span class="selo">Com gabarito</span></p><p>Comparação de números, dobro e triplo, frações, geometria espacial e medidas de tempo, com quizzes e jogos online.</p><p class="fonte">Fonte: <b>Tudo Sala de Aula</b> — tudosaladeaula.com/tag/matematica-anos-iniciais/ · Conteúdo do site de origem (link externo), não da Brittech Educação.</p><div class="acoes"><a class="plat" href="https://www.tudosaladeaula.com/tag/matematica-anos-iniciais/" target="_blank" rel="noopener">Acessar atividades ↗</a></div></div></article>
+    <article class="item ativ-item"><div class="linha"><span class="num">06</span><span class="tit">Matemática — Anos Finais</span><span class="tipo">Atividades para imprimir</span></div><div class="detalhe"><p><span class="selo">6º ao 9º ano</span><span class="selo">PDF para baixar</span><span class="selo">Com gabarito</span></p><p>Polígonos, ângulos, equações do 1º e 2º grau, múltiplos e divisores, média, moda e mediana, com planejamento, PDF e gabarito.</p><p class="fonte">Fonte: <b>Tudo Sala de Aula</b> — tudosaladeaula.com/tag/matematica-anos-finais/ · Conteúdo do site de origem (link externo), não da Brittech Educação.</p><div class="acoes"><a class="plat" href="https://www.tudosaladeaula.com/tag/matematica-anos-finais/" target="_blank" rel="noopener">Acessar atividades ↗</a></div></div></article>
+    <article class="item ativ-item"><div class="linha"><span class="num">07</span><span class="tit">Geografia — Anos Iniciais</span><span class="tipo">Atividades para imprimir</span></div><div class="detalhe"><p><span class="selo">1º ao 5º ano</span><span class="selo">PDF para baixar</span><span class="selo">Alinhado à BNCC</span></p><p>Solo e água, pontos cardeais, territórios municipais e meios de transporte, com texto de apoio e questões formativas.</p><p class="fonte">Fonte: <b>Tudo Sala de Aula</b> — tudosaladeaula.com/atividades/geografia-anos-iniciais/ · Conteúdo do site de origem (link externo), não da Brittech Educação.</p><div class="acoes"><a class="plat" href="https://www.tudosaladeaula.com/atividades/geografia-anos-iniciais/" target="_blank" rel="noopener">Acessar atividades ↗</a></div></div></article>
+    <article class="item ativ-item"><div class="linha"><span class="num">08</span><span class="tit">Geografia — Anos Finais</span><span class="tipo">Atividades para imprimir</span></div><div class="detalhe"><p><span class="selo">6º ao 9º ano</span><span class="selo">PDF para baixar</span><span class="selo">Com gabarito</span></p><p>Vegetação da Europa, bacias hidrográficas, atmosfera, densidade demográfica, urbanização e biomas brasileiros, com PDF e gabarito.</p><p class="fonte">Fonte: <b>Tudo Sala de Aula</b> — tudosaladeaula.com/atividades/geografia-anos-finais/ · Conteúdo do site de origem (link externo), não da Brittech Educação.</p><div class="acoes"><a class="plat" href="https://www.tudosaladeaula.com/atividades/geografia-anos-finais/" target="_blank" rel="noopener">Acessar atividades ↗</a></div></div></article>
+    <article class="item ativ-item"><div class="linha"><span class="num">09</span><span class="tit">História — Anos Iniciais</span><span class="tipo">Atividades para imprimir</span></div><div class="detalhe"><p><span class="selo">1º ao 5º ano</span><span class="selo">PDF para baixar</span><span class="selo">Com gabarito</span></p><p>Símbolos nacionais, Proclamação da República, Independência do Brasil e identidade pessoal, com PDF, planejamento e texto de apoio.</p><p class="fonte">Fonte: <b>Tudo Sala de Aula</b> — tudosaladeaula.com/tag/historia-anos-iniciais/ · Conteúdo do site de origem (link externo), não da Brittech Educação.</p><div class="acoes"><a class="plat" href="https://www.tudosaladeaula.com/tag/historia-anos-iniciais/" target="_blank" rel="noopener">Acessar atividades ↗</a></div></div></article>
+    <article class="item ativ-item"><div class="linha"><span class="num">10</span><span class="tit">História — Anos Finais</span><span class="tipo">Atividades para imprimir</span></div><div class="detalhe"><p><span class="selo">6º ao 9º ano</span><span class="selo">PDF para baixar</span><span class="selo">Com gabarito</span></p><p>Segundo Reinado, Colonização Inglesa, Era Napoleônica, governos populistas e União Ibérica, com PDF pronto para baixar.</p><p class="fonte">Fonte: <b>Tudo Sala de Aula</b> — tudosaladeaula.com/atividades/historia-8-e-9-ano/ · Conteúdo do site de origem (link externo), não da Brittech Educação.</p><div class="acoes"><a class="plat" href="https://www.tudosaladeaula.com/atividades/historia-8-e-9-ano/" target="_blank" rel="noopener">Acessar atividades ↗</a></div></div></article>
+    <article class="item ativ-item"><div class="linha"><span class="num">11</span><span class="tit">Arte</span><span class="tipo">Atividades para imprimir</span></div><div class="detalhe"><p><span class="selo">Anos Iniciais e Finais</span><span class="selo">PDF para baixar</span><span class="selo">Com gabarito</span></p><p>Cubismo, expressionismo e surrealismo, arte urbana e grafite, Anita Malfatti, arte indígena e arte barroca, com PDF, planejamento e gabarito.</p><p class="fonte">Fonte: <b>Tudo Sala de Aula</b> — tudosaladeaula.com/tag/arte/ · Conteúdo do site de origem (link externo), não da Brittech Educação.</p><div class="acoes"><a class="plat" href="https://www.tudosaladeaula.com/tag/arte/" target="_blank" rel="noopener">Acessar atividades ↗</a></div></div></article>
+    <article class="item ativ-item"><div class="linha"><span class="num">12</span><span class="tit">Ciências — Anos Finais</span><span class="tipo">Atividades para imprimir</span></div><div class="detalhe"><p><span class="selo">8º e 9º ano</span><span class="selo">PDF para baixar</span><span class="selo">Com gabarito</span></p><p>Método científico, genética, energia, corpo humano e mudanças climáticas — todas com gabarito, texto de apoio, planejamento e PDF gratuito.</p><p class="fonte">Fonte: <b>Tudo Sala de Aula</b> — tudosaladeaula.com/atividades-de-ciencias-8-e-9-ano/ · Conteúdo do site de origem (link externo), não da Brittech Educação.</p><div class="acoes"><a class="plat" href="https://www.tudosaladeaula.com/atividades-de-ciencias-8-e-9-ano/" target="_blank" rel="noopener">Acessar atividades ↗</a></div></div></article>
+    <article class="item ativ-item"><div class="linha"><span class="num">13</span><span class="tit">Gincanas e dinâmicas</span><span class="tipo">Jogos para sala de aula</span></div><div class="detalhe"><p><span class="selo">Fundamental</span><span class="selo">Em slides</span><span class="selo">Habilidades do SAEB</span></p><p>Gincanas de Português e Matemática prontas para aplicar em slides, com desafios de reta numérica, gêneros textuais e descritores do SAEB.</p><p class="fonte">Fonte: <b>Tudo Sala de Aula</b> — tudosaladeaula.com/apoio/gincanas-portugues/ · Conteúdo do site de origem (link externo), não da Brittech Educação.</p><div class="acoes"><a class="plat" href="https://www.tudosaladeaula.com/apoio/gincanas-portugues/" target="_blank" rel="noopener">Acessar atividades ↗</a></div></div></article>
+  </div>
+</section>
+<section class="manifesto" id="como-usar">
+  <h2>Baixar. <s>Comprar.</s><br><span class="lima">Usar.</span></h2>
+  <p><b>01 · Baixar</b> — os arquivos com botão verde já estão aqui, prontos pra baixar e imprimir.<br><br>
+  <b>02 · Conferir a licença</b> — cada material mostra a licença: domínio público, Creative Commons ou uso gratuito no site oficial. Respeite a licença: cite a fonte quando compartilhar.<br><br>
+  <b>03 · Adaptar com IA</b> — abra o planejador da Brittech Educação e peça para a IA adaptar o material pra sua turma, sua série e sua realidade.</p>
+</section>
+<footer class="rodape">
+  <div class="gigante">Brittech<br>Educação</div>
+  <p>Acervo de materiais gratuitos e legais. Os arquivos baixados aqui têm licença aberta (Creative Commons ou domínio público) ou são publicações oficiais gratuitas. Os materiais com botão azul são links para a fonte oficial — o download é feito no site de origem. Nada aqui é pirata: se um material não tinha licença aberta nem download gratuito, ele não entrou no acervo.</p>
+  <a class="cta" href="https://thiagollipe-web.github.io/brittech-educacao-mvp/">Abrir o planejador →</a>
+</footer>
+<script>
+var MATERIAIS = [["João e Maria — Coleção Conta pra Mim", "livro infantil", "Educação Infantil", "Língua Portuguesa", "educacao-infantil/joao-e-maria-conta-pra-mim.pdf", null, "MEC / Secretaria de Alfabetização (2020)", "CC BY 4.0", "16 págs · conto de fadas ilustrado"], ["Os Três Porquinhos — Coleção Conta pra Mim", "livro infantil", "Educação Infantil", "Língua Portuguesa", "educacao-infantil/os-tres-porquinhos-conta-pra-mim.pdf", null, "MEC / Secretaria de Alfabetização (2020)", "CC BY 4.0", "16 págs · conto de fadas ilustrado"], ["Cantigas — Coleção Conta pra Mim", "livro infantil", "Educação Infantil", "Língua Portuguesa", "educacao-infantil/cantigas-conta-pra-mim.pdf", null, "MEC / Secretaria de Alfabetização (2020)", "CC BY 4.0", "16 págs · cantigas tradicionais com cifras"], ["Micróbios — Coleção Conta pra Mim", "livro infantil", "Educação Infantil", "Ciências", "educacao-infantil/microbios-conta-pra-mim.pdf", null, "MEC / Secretaria de Alfabetização (2020)", "CC BY 4.0", "16 págs · série Informativos"], ["Trava-Línguas — Coleção Conta pra Mim", "livro infantil", "Educação Infantil", "Língua Portuguesa", "educacao-infantil/trava-linguas-conta-pra-mim.pdf", null, "MEC / Secretaria de Alfabetização (2020)", "CC BY 4.0", "16 págs · série Poesias"], ["Indicadores de alfabetização científica e o uso de histórias em quadrinhos como recurso didático em Ciências", "capítulo de livro", "Ensino Fundamental 1", "Ciências", "ensino-fundamental-1/bastos-hq-ciencias-anos-iniciais.pdf", null, "SciELO Books — Bastos (org.), Ensino de Ciências e Matemática III, UNESP (2010)", "CC BY-NC-SA 3.0", "21 págs · 5º ano"], ["TIC e ensino de Ciências: a construção de um objeto de aprendizagem", "capítulo de livro", "Ensino Fundamental 1", "Ciências", "ensino-fundamental-1/caldeira-tic-ensino-ciencias.pdf", null, "SciELO Books — Caldeira (org.), Ensino de Ciências e Matemática II, UNESP (2009)", "CC BY-NC-SA 3.0", "14 págs · sistema digestório"], ["Ensino de Ciências e Matemática III — livro completo", "livro", "Ensino Fundamental 2", "Ciências e Matemática", "ensino-fundamental-2/bastos-livro-ensino-ciencias-matematica-III.pdf", null, "SciELO Books — Bastos (org.), UNESP / Cultura Acadêmica (2010)", "CC BY-NC-SA 3.0", "219 págs · formação docente"], ["Uso de histórias em quadrinhos no ensino de Geografia Física", "artigo", "Ensino Fundamental 2", "Geografia", "ensino-fundamental-2/geografia-hq-ensino-geografia-fisica.pdf", null, "Revista Ensino de Geografia (Recife), v. 6, n. 3 (2023)", "CC BY 4.0", "13 págs · geodiversidade da Amazônia paraense"], ["Ensino de Ciências e pós-modernidade: as novas questões propostas pela Genética", "capítulo de livro", "Ensino Fundamental 2", "Ciências", "ensino-fundamental-2/bastos-ciencias-pos-modernidade-genetica.pdf", null, "SciELO Books — Bastos (org.), Ensino de Ciências e Matemática III, UNESP (2010)", "CC BY-NC-SA 3.0", "19 págs"], ["Tensões e possibilidades expressadas por professores de Ciências sobre a abordagem CTSA", "capítulo de livro", "Ensino Fundamental 2", "Ciências", "ensino-fundamental-2/bastos-ctsa-professores-ciencias.pdf", null, "SciELO Books — Bastos (org.), Ensino de Ciências e Matemática III, UNESP (2010)", "CC BY-NC-SA 3.0", "18 págs · Ciência, Tecnologia, Sociedade e Ambiente"], ["Possíveis contribuições metodológicas da fenomenologia de Merleau-Ponty às pesquisas em educação em Ciências", "capítulo de livro", "Ensino Fundamental 2", "Ciências", "ensino-fundamental-2/bastos-fenomenologia-pesquisa-ciencias.pdf", null, "SciELO Books — Bastos (org.), Ensino de Ciências e Matemática III, UNESP (2010)", "CC BY-NC-SA 3.0", "19 págs · formação docente"], ["Corpo e vida nas representações de estudantes do Ensino Fundamental", "capítulo de livro", "Ensino Fundamental 2", "Ciências", "ensino-fundamental-2/caldeira-corpo-vida-representacoes.pdf", null, "SciELO Books — Caldeira (org.), Ensino de Ciências e Matemática II, UNESP (2009)", "CC BY-NC-SA 3.0", "16 págs · corpo humano"], ["Ensino de Ciências e Matemática II — livro completo", "livro", "Ensino Médio", "Ciências e Matemática", "ensino-medio/caldeira-livro-ensino-ciencias-matematica-II.pdf", null, "SciELO Books — Caldeira (org.), UNESP / Cultura Acadêmica (2009)", "CC BY-NC-SA 3.0", "291 págs · formação de conceitos"], ["Contribuições de um texto histórico de fonte primária para a aprendizagem significativa da Lei de Coulomb", "capítulo de livro", "Ensino Médio", "Física", "ensino-medio/bastos-lei-de-coulomb-fonte-primaria.pdf", null, "SciELO Books — Bastos (org.), Ensino de Ciências e Matemática III, UNESP (2010)", "CC BY-NC-SA 3.0", "22 págs"], ["Ensino de Ciências para cidadania a partir do desenvolvimento de habilidades de negociação em estudantes de Ensino Médio", "capítulo de livro", "Ensino Médio", "Ciências", "ensino-medio/caldeira-ciencias-cidadania-negociacao.pdf", null, "SciELO Books — Caldeira (org.), Ensino de Ciências e Matemática II, UNESP (2009)", "CC BY-NC-SA 3.0", "20 págs · temas controversos de C&T"], ["ENEM 2025 — 1º dia: Linguagens e Ciências Humanas + redação (caderno azul)", "simulado / prova", "Ensino Médio", "Linguagens e Ciências Humanas", null, "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D1_CD1.pdf", "Inep — ENEM 2025", "Gratuito · uso livre para estudo", "Prova oficial · baixe no site do Inep"], ["ENEM 2025 — 2º dia: Ciências da Natureza e Matemática (caderno azul)", "simulado / prova", "Ensino Médio", "Ciências da Natureza e Matemática", null, "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D2_CD7.pdf", "Inep — ENEM 2025", "Gratuito · uso livre para estudo", "Prova oficial · baixe no site do Inep"], ["ENEM 2025 — Gabaritos (1º e 2º dia)", "gabarito", "Ensino Médio", "Todas as áreas", null, "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos", "Inep — ENEM 2025", "Gratuito · uso livre para estudo", "Gabaritos oficiais por cor de caderno"], ["ENEM 2024 — 1º dia: Linguagens e Ciências Humanas + redação (caderno azul)", "simulado / prova", "Ensino Médio", "Linguagens e Ciências Humanas", null, "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_impresso_D1_CD1.pdf", "Inep — ENEM 2024", "Gratuito · uso livre para estudo", "Prova oficial · baixe no site do Inep"], ["Provas e gabaritos do ENEM (1998–2025) — página oficial", "simulado / prova", "Ensino Médio", "Todas as áreas", null, "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos", "Inep — gov.br", "Gratuito · uso livre para estudo", "Todas as edições, por ano"], ["Encceja — Material de estudo (Ensino Fundamental e Médio)", "apostila", "Ensino Médio", "Todas as áreas", null, "https://download.inep.gov.br/educacao_basica/encceja/material_estudo/materiais_de_estudo.pdf", "Inep — Encceja", "Gratuito · uso livre para estudo", "Volumes do estudante e do professor"], ["Contos de Machado de Assis", "livro", "Ensino Médio", "Língua Portuguesa", null, "http://www.dominiopublico.gov.br/download/texto/bv000269.pdf", "Portal Domínio Público — MEC", "Domínio público", "Leitura obrigatória · clássico brasileiro"], ["O triste fim de Policarpo Quaresma — Lima Barreto", "livro", "Ensino Médio", "Língua Portuguesa", null, "http://www.dominiopublico.gov.br/download/texto/bn000013.pdf", "Portal Domínio Público — MEC", "Domínio público", "Romance clássico brasileiro"], ["Auto da Barca do Inferno — Gil Vicente", "livro", "Ensino Médio", "Língua Portuguesa", null, "http://www.dominiopublico.gov.br/download/texto/ua00111a.pdf", "Portal Domínio Público — MEC", "Domínio público", "Teatro clássico · leitura do Ensino Médio"], ["A Carta — Pero Vaz de Caminha", "livro", "Ensino Médio", "Língua Portuguesa", null, "http://www.dominiopublico.gov.br/download/texto/ua000283.pdf", "Portal Domínio Público — MEC", "Domínio público", "Documento histórico · literatura de informação"], ["Khan Academy — Matemática, Ciências, Física, Química e Biologia", "portal gratuito", "Ensino Fundamental 2", "Matemática", null, "https://www.khanacademy.org/", "Khan Academy", "Gratuito · sem fins lucrativos", "Aulas, exercícios e vídeos em português"], ["Nova Escola — Planos de aula e atividades por disciplina", "portal gratuito", "Ensino Fundamental 1", "Todas as disciplinas", null, "https://novaescola.org.br/", "Nova Escola", "Gratuito", "Planos de aula alinhados à BNCC"], ["Portal do MEC — Livros, PNLD e materiais oficiais", "portal oficial", "Ensino Fundamental 1", "Todas as disciplinas", null, "https://www.gov.br/mec/pt-br", "Ministério da Educação", "Gratuito · oficial", "Livros didáticos, guias do PNLD e programas"], ["BNCC — Base Nacional Comum Curricular (documento oficial)", "documento oficial", "Ensino Fundamental 1", "Todas as disciplinas", null, "https://basenacionalcomum.mec.gov.br/", "MEC — BNCC", "Gratuito · oficial", "O documento que orienta todos os currículos"]];
+var NIVEIS = [
+ {id:'infantil', cls:'infantil', titulo:'Educação Infantil', nome:'Educação Infantil', desc:'Livros ilustrados da Coleção Conta pra Mim (MEC, CC BY 4.0): contos, cantigas, trava-línguas e informativos para ler com as crianças.'},
+ {id:'fundamental-1', cls:'f1', titulo:'Fundamental 1', nome:'Ensino Fundamental 1', desc:'Capítulos e portais para os anos iniciais: alfabetização científica, tecnologia no ensino de Ciências e planos de aula alinhados à BNCC.'},
+ {id:'fundamental-2', cls:'f2', titulo:'Fundamental 2', nome:'Ensino Fundamental 2', desc:'Livros e capítulos de Ciências, Geografia e Matemática, além de portais gratuitos com aulas e exercícios.'},
+ {id:'medio', cls:'em', titulo:'Ensino Médio', nome:'Ensino Médio', desc:'Simulados do ENEM com gabarito, material do Encceja, clássicos em domínio público e capítulos de Física e Ciências.'}
+];
+var filtroTipo = 'todos';
+function tipoGrupo(t){
+  t = (t||'').toLowerCase();
+  if(t.indexOf('prova')>=0 || t.indexOf('simulado')>=0 || t.indexOf('gabarito')>=0) return 'prova';
+  if(t.indexOf('apostila')>=0) return 'apostila';
+  if(t.indexOf('livro')>=0 || t.indexOf('capítulo')>=0 || t.indexOf('artigo')>=0 || t.indexOf('documento')>=0) return 'livro';
+  if(t.indexOf('portal')>=0) return 'portal';
+  return 'atividade';
+}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function render(){
+  var q = (document.getElementById('campoBusca').value||'').toLowerCase().trim();
+  var listas = document.getElementById('listas');
+  var total = 0, visiveis = 0;
+  var out = '';
+  NIVEIS.forEach(function(nv, ni){
+    var itens = MATERIAIS.filter(function(m){return m[2]===nv.nome});
+    total += itens.length;
+    var lis = '';
+    itens.forEach(function(m, idx){
+      var hay = (m[0]+' '+m[1]+' '+m[3]+' '+m[6]).toLowerCase();
+      if(q && hay.indexOf(q)<0) return;
+      if(filtroTipo!=='todos' && tipoGrupo(m[1])!==filtroTipo) return;
+      visiveis++;
+      var botao = m[4]
+        ? '<a class="baixar" href="'+esc(m[4])+'" download>Baixar PDF ↓</a>'
+        : '<a class="fonte" href="'+esc(m[5])+'" target="_blank" rel="noopener">Acessar na fonte ↗</a>';
+      lis += '<article class="item"><div class="linha">'
+        + '<span class="num">'+String(idx+1).padStart(2,'0')+'</span>'
+        + '<span class="tit">'+esc(m[0])+'</span>'
+        + '<span class="tipo">'+esc(m[1])+'</span></div>'
+        + '<div class="detalhe"><p><span class="selo">'+esc(m[3])+'</span><span class="selo">'+esc(m[1])+'</span><span class="selo">'+esc(m[7])+'</span></p>'
+        + '<p>'+esc(m[8])+'</p>'
+        + '<p class="fonte">Fonte: '+esc(m[6])+'</p>'
+        + '<div class="acoes">'+botao+'</div></div></article>';
+    });
+    out += '<section class="nivel '+nv.cls+'" id="'+nv.id+'"><h2><small>0'+(ni+1)+' · '+esc(nv.nome)+'</small>'+esc(nv.titulo)+'</h2><p class="desc">'+esc(nv.desc)+'</p><div class="lista">'+(lis||'<p style="padding:20px 4px">Nenhum material neste nível para essa busca.</p>')+'</div></section>';
+  });
+  listas.innerHTML = out;
+  document.getElementById('contagem').textContent = visiveis + ' de ' + total + ' materiais';
+  document.getElementById('semResultado').style.display = visiveis ? 'none' : 'block';
+}
+document.getElementById('campoBusca').addEventListener('input', render);
+document.getElementById('listas').addEventListener('click', function(e){
+  var linha = e.target.closest('.linha');
+  if(linha) linha.parentElement.classList.toggle('aberto');
+});
+document.getElementById('listaPlataformas').addEventListener('click', function(e){
+  var linha = e.target.closest('.linha');
+  if(linha) linha.parentElement.classList.toggle('aberto');
+});
+document.getElementById('listaAtividades').addEventListener('click', function(e){
+  var linha = e.target.closest('.linha');
+  if(linha) linha.parentElement.classList.toggle('aberto');
+});
+(function(){
+  var campo = document.getElementById('campoBusca');
+  campo.addEventListener('input', function(){
+    var q = (campo.value||'').toLowerCase().trim();
+    var vis = 0;
+    document.querySelectorAll('#listaAtividades .ativ-item').forEach(function(it){
+      var ok = !q || it.textContent.toLowerCase().indexOf(q) >= 0;
+      it.style.display = ok ? '' : 'none';
+      if(ok) vis++;
+    });
+    document.querySelectorAll('#atividades .grupo').forEach(function(g){
+      var any = false, nxt = g.nextElementSibling;
+      while(nxt && !nxt.classList.contains('grupo')){ if(nxt.style.display !== 'none') any = true; nxt = nxt.nextElementSibling; }
+      g.style.display = any ? '' : 'none';
+    });
+    document.getElementById('atividades').style.display = vis ? '' : 'none';
+    if(vis) document.getElementById('semResultado').style.display = 'none';
+  });
+})();
+(function(){
+  var campo = document.getElementById('campoBusca');
+  campo.addEventListener('input', function(){
+    var q = (campo.value||'').toLowerCase().trim();
+    var vis = 0;
+    document.querySelectorAll('#listaPlataformas .plat-item').forEach(function(it){
+      var ok = !q || it.textContent.toLowerCase().indexOf(q) >= 0;
+      it.style.display = ok ? '' : 'none';
+      if(ok) vis++;
+    });
+    document.getElementById('plataformas').style.display = vis ? '' : 'none';
+    if(vis) document.getElementById('semResultado').style.display = 'none';
+  });
+})();
+document.getElementById('filtros').addEventListener('click', function(e){
+  if(e.target.tagName!=='BUTTON') return;
+  filtroTipo = e.target.getAttribute('data-f');
+  document.querySelectorAll('#filtros button').forEach(function(b){b.classList.toggle('ativo', b===e.target)});
+  render();
+});
+document.getElementById('abrirMenu').addEventListener('click', function(){document.getElementById('menu').classList.add('aberto')});
+document.getElementById('fecharMenu').addEventListener('click', function(){document.getElementById('menu').classList.remove('aberto')});
+document.querySelectorAll('#menu a').forEach(function(a){a.addEventListener('click', function(){document.getElementById('menu').classList.remove('aberto')})});
+render();
+var p = 0;
+var iv = setInterval(function(){
+  p = Math.min(100, p + Math.random()*22);
+  document.getElementById('loadnum').textContent = Math.round(p) + '%';
+  document.getElementById('loadbar').style.width = p + '%';
+  if(p >= 100){ clearInterval(iv); var l = document.getElementById('loader'); l.style.opacity = '0'; setTimeout(function(){ l.remove(); }, 550); }
+}, 120);
+</script>
+</body>
+</html>
